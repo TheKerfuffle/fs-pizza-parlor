@@ -4,6 +4,8 @@ import axios from 'axios';
 import './App.css';
 
 import Menu from '../Menu/Menu';
+import Checkout from '../Checkout/Checkout'
+import StrongAnonymousDumboOctopus from '../StrongAnonymousDumboOctopus/StrongAnonymousDumboOctopus';
 
 function App() {
 
@@ -26,6 +28,8 @@ function App() {
         <Route path="/" exact>
           <Menu />
         </Route>
+          <Route path="/checkout" component={Checkout}/>
+          <Route path="/strong-anonymous-dumbo-octopus" component={StrongAnonymousDumboOctopus} />
       </Router>
 
       {/* <img src='images/pizza_photo.png' />
