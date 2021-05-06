@@ -15,10 +15,32 @@ const menuStore = (state = [], action) => {
     return state;
 }
 
+const cart = (state = [], action) => {
+    if (action.type === 'SET_CART') {
+        return [...state, action.payload];
+    }
+    else if (action.type === 'RESET_CART') {
+        return [];
+    }
+    return state;
+}
+
+const totalPrice = (state = 0, action) => {
+    if (action.type === 'SET_PRICE') {
+        return Number(action.payload);
+    }
+    else if (action.type === 'RESET_PRICE') {
+        return 0;
+    }
+    return state;
+}
+
 const storeInstance = createStore(
     // reducers go inside our store - these are specific to our app
     combineReducers({
         menuStore,
+        cart,
+        totalPrice
 
     }
     ),

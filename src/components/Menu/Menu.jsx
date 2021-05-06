@@ -6,6 +6,9 @@ import MenuItem from '../MenuItem/MenuItem'
 
 function Menu() {
 
+    let [currentCart, setCurrentCart] = useState([]);
+    let [price, setPrice] = useState(0);
+
     const dispatch = useDispatch();
 
     function setMenu() {
@@ -25,16 +28,28 @@ function Menu() {
 
     }, []);
 
-    const menu = useSelector(store => store.menuStore);
+    function submitCart() {
+        dispatch({type: 'SET_CART'})
+    }
+
+
+
+    const reduxStore = useSelector(store => store);
 
     return (
         <>
             <div className="Menu">
                 <ul>
-                    {menu.map((pizza) =>
-                        <MenuItem pizza={pizza} />
+                    {reduxStore.menuStore.map((pizza) =>
+                        <MenuItem pizza={pizza} 
+                            currentCart={currentCart}
+                            setCurrentCart={setCurrentCart}
+                            price={price}
+                            setPrice={setPrice} />
                     )}
                 </ul>
+                <p>Total Price: {reduxStore.totalPrice}</p>
+                <button onClick={submitCart}> NEXT </button>
             </div>
         </>
     )
