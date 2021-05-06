@@ -28,8 +28,8 @@ function App() {
         </Route>
       </Router>
 
-      <img src='images/pizza_photo.png' />
-      <p>Pizza is great.</p>
+      {/* <img src='images/pizza_photo.png' />
+      <p>Pizza is great.</p> */}
 
     </div>
   );
