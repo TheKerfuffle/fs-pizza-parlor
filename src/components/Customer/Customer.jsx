@@ -1,6 +1,7 @@
 import axios from "axios";
 import {useDispatch} from 'react-redux';
 import {useState} from 'react';
+import './Customer.css'
 
 function Customer(){
 
@@ -71,17 +72,18 @@ function Customer(){
                 value={name}
                 onChange={(event) => setName(event.target.value)}
                 />
-
+                <br />
                 <input placeholder="Street Address"
                 value={address}
                 onChange={(event) => setAddress(event.target.value)}
                 />
+                <br />
 
                 <input placeholder="City"
                 value={city}
                 onChange={(event) => setCity(event.target.value)}
                 />
-
+                <br />
                 <input placeholder="Zip"
                 value={zip}
                 onChange={(event) => setZip(event.target.value)}
