@@ -8,19 +8,19 @@ import Customer from '../Customer/Customer';
 
 function App() {
 
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
-  const fetchCustomer = () => {
-    Axios.get('/customer')
-      .then(response => {
-        //send to reducer
-        dispatch({type: 'SET_CUSTOMER', payload: response.data})
-      })
-      .catch(error => {
-        alert(`Sorry. Things aren't working at the moment. Try again later`);
-        console.log('error getting customer info', error);
-      }) 
-  }
+  // const fetchCustomer = () => {
+  //   Axios.get('/customer')
+  //     .then(response => {
+  //       //send to reducer
+  //       dispatch({type: 'SET_CUSTOMER', payload: response.data})
+  //     })
+  //     .catch(error => {
+  //       alert(`Sorry. Things aren't working at the moment. Try again later`);
+  //       console.log('error getting customer info', error);
+  //     }) 
+  // }
 
   return (
 
@@ -45,7 +45,7 @@ function App() {
           <Menu />
         </Route>
         <Route path="/customer" exact>
-          <Customer fetchCustomer={fetchCustomer} />
+          <Customer />
         </Route>
       </Router>
 
