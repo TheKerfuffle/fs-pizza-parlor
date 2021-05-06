@@ -41,6 +41,9 @@ function App() {
             <li>
               <Link to='/customer'>Customer Information</Link>
             </li>
+            <li>
+              <Link to='/checkout'>Checkout</Link>
+            </li>
           </ul>
         </nav>
         <Route path="/" exact>
