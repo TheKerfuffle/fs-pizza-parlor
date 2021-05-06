@@ -21,11 +21,16 @@ function App() {
             <li>
               <Link to='/'>Menu</Link>
             </li>
+            <li>
+              <Link to='/customer'>Customer Information</Link>
+            </li>
           </ul>
         </nav>
         <Route path="/" exact>
           <Menu />
         </Route>
+        <Route path="/customer" exact>
+          <Customer />
       </Router>
 
       <img src='images/pizza_photo.png' />
