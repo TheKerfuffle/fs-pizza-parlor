@@ -15,11 +15,20 @@ const menuStore = (state = [], action) => {
     return state;
 }
 
+const customers = (state=[], action) => {
+    console.log('hello from the customers reducer');
+    if (action.type === `ADD_CUSTOMER`) {
+        return [...state, action.payload]
+    }
+    return state;
+    
+}
+
 const storeInstance = createStore(
     // reducers go inside our store - these are specific to our app
     combineReducers({
         menuStore,
-
+        customers,
     }
     ),
     // Also, add our middleware for the logger
