@@ -12,6 +12,7 @@ const menuStore = (state = [], action) => {
     if (action.type === 'SET_MENU') {
         return action.payload;
     }
+    return state;
 }
 
 const storeInstance = createStore(
