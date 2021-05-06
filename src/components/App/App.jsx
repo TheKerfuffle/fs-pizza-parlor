@@ -4,8 +4,25 @@ import axios from 'axios';
 import './App.css';
 
 import Menu from '../Menu/Menu';
+import Customer from '../Customer/Customer';
+import Checkout from '../Checkout/Checkout'
+import StrongAnonymousDumboOctopus from '../StrongAnonymousDumboOctopus/StrongAnonymousDumboOctopus';
 
 function App() {
+
+  // const dispatch = useDispatch();
+
+  // const fetchCustomer = () => {
+  //   Axios.get('/customer')
+  //     .then(response => {
+  //       //send to reducer
+  //       dispatch({type: 'SET_CUSTOMER', payload: response.data})
+  //     })
+  //     .catch(error => {
+  //       alert(`Sorry. Things aren't working at the moment. Try again later`);
+  //       console.log('error getting customer info', error);
+  //     }) 
+  // }
 
   return (
 
@@ -21,15 +38,20 @@ function App() {
             <li>
               <Link to='/'>Menu</Link>
             </li>
+            <li>
+              <Link to='/customer'>Customer Information</Link>
+            </li>
           </ul>
         </nav>
         <Route path="/" exact>
           <Menu />
         </Route>
+        <Route path="/customer" exact>
+          <Customer />
+        </Route>
+          <Route path="/checkout" component={Checkout}/>
+          <Route path="/strong-anonymous-dumbo-octopus" component={StrongAnonymousDumboOctopus} />
       </Router>
-
-      {/* <img src='images/pizza_photo.png' />
-      <p>Pizza is great.</p> */}
 
     </div>
   );
