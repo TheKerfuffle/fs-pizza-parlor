@@ -1,11 +1,13 @@
 import axios from "axios";
 import {useDispatch} from 'react-redux';
 import {useState} from 'react';
-import './Customer.css'
+import './Customer.css';
+import { useHistory } from 'react-router-dom';
 
 function Customer(){
 
     const dispatch = useDispatch();
+    const history = useHistory();
 
     const [name, setName] = useState('');
     const [address, setAddress] = useState('');
@@ -32,7 +34,7 @@ function Customer(){
         // else {
         //     setType(document.getElementById('delivery'.value))
         // }
-
+        
         dispatch({type: 'ADD_CUSTOMER', payload:{
             customer_name: name, 
             street_address: address,
@@ -45,6 +47,7 @@ function Customer(){
         setCity('');
         setZip('');
         setType('');
+        history.push('/checkout');
 
     //     axios.post('/customer', {
     //         customer_name: name,

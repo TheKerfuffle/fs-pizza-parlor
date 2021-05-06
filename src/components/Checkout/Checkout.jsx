@@ -5,6 +5,10 @@ import {useState, useEffect} from 'react';
 function Checkout() {
 
   const [total, setTotal] = useState(0);
+
+  function getTotal () {
+    return total;
+  }
   
   const checkoutListData = useSelector(store => store.cart);
   const checkoutCustomerData = useSelector(store => store.customers);
@@ -24,22 +28,22 @@ function Checkout() {
         <div className="checkoutList">
           <table>
             <thead>
-              <th>
+              <tr>
                 <td>Name</td>
                 <td>Cost</td>
-              </th>
+              </tr>
             </thead>
             <tbody>
-              {checkoutListData.map(
-              <tr key={checkoutListData.id}>
-                <td>{checkoutListData.name}</td>
-                <td>{checkoutListData.price}</td>
+              {checkoutListData.map( taco =>
+              <tr key={taco.id}>
+                <td>{taco.name}</td>
+                <td>{taco.price}</td>
               </tr>
               )}
             </tbody>
           </table>
           <div className="total">
-            {getTotal}
+            {total}
           </div>
         </div>
       </div> 
