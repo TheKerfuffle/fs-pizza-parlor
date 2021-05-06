@@ -5,6 +5,8 @@ import './App.css';
 
 import Menu from '../Menu/Menu';
 import Customer from '../Customer/Customer';
+import Checkout from '../Checkout/Checkout'
+import StrongAnonymousDumboOctopus from '../StrongAnonymousDumboOctopus/StrongAnonymousDumboOctopus';
 
 function App() {
 
@@ -47,6 +49,8 @@ function App() {
         <Route path="/customer" exact>
           <Customer />
         </Route>
+          <Route path="/checkout" component={Checkout}/>
+          <Route path="/strong-anonymous-dumbo-octopus" component={StrongAnonymousDumboOctopus} />
       </Router>
 
     </div>
