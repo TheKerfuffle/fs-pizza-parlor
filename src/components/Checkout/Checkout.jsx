@@ -1,29 +1,56 @@
 import './Checkout.css'
 import {useSelector} from 'react-redux'
-import {useState} from 'react';
+import axios from 'axios';
+
 
 function Checkout() {
 
-  const [total, setTotal] = useState(0);
-
-  function getTotal () {
-    return total;
-  }
+  
   
   const checkoutListData = useSelector(store => store.cart);
   const checkoutCustomerData = useSelector(store => store.customers);
+  const total = useSelector(store => store.totalPrice);
+  
+  // const [order, setOrder] = useState({});
+
+  const handleCheckout = () => {
+    console.log('click');
+    const order = {
+      customer_name: checkoutCustomerData.customer_name,
+      street_address: checkoutCustomerData.street_address,
+      city: checkoutCustomerData.city,
+      zip: checkoutCustomerData.zip,
+      type: checkoutCustomerData.type,
+      total: String(total),
+      pizzas: checkoutListData
+    }
+    console.log(order);
+    axios({
+      method: 'POST',
+      url: '/api/order', 
+      data: order
+    })
+    .then(response =>  {
+      console.log('added an order to the server', response);
+    })
+    .catch(error => {
+      console.log('Unable to add order', error);
+      alert('Unable to add order');
+    })
+
+  }
 
   return (
     <>
       <div className="checkoutCustomer">
         <div className="checkoutCustomer">
       <h2>Step 3: Checkout</h2>
-          <p>{checkoutCustomerData.name}</p>
-          <p>{checkoutCustomerData.street_address}</p>
-          <p>{checkoutCustomerData.city + ', ' + checkoutCustomerData.state, checkoutCustomerData.zip}</p>
+          <p>{checkoutCustomerData.customer_name}<br />
+          {checkoutCustomerData.street_address}<br />
+          {checkoutCustomerData.city + ', MN ' + checkoutCustomerData.zip}</p>
         </div>
         <div className="checkoutType">
-          <h2>Type of order</h2>
+          <h2>{checkoutCustomerData.type}</h2>
         </div>
         <div className="checkoutList">
           <table>
@@ -34,10 +61,10 @@ function Checkout() {
               </tr>
             </thead>
             <tbody>
-              {checkoutListData.map( taco =>
-              <tr key={taco.id}>
-                <td>{taco.name}</td>
-                <td>{taco.price}</td>
+              {checkoutListData.map( listData =>
+              <tr key={listData.id}>
+                <td>{listData.name}</td>
+                <td>{listData.price}</td>
               </tr>
               )}
             </tbody>
@@ -45,6 +72,7 @@ function Checkout() {
           <div className="total">
             {total}
           </div>
+          <button onClick={handleCheckout}>Checkout</button>
         </div>
       </div> 
     </>
