@@ -14,6 +14,7 @@ function Menu() {
 
     const dispatch = useDispatch();
     const history = useHistory();
+    const reduxStore = useSelector(store => store);
 
     function setMenu() {
         axios.get('/api/pizza')
@@ -37,14 +38,10 @@ function Menu() {
         history.push('/customer');
     }
 
-
-
-    const reduxStore = useSelector(store => store);
-
     return (
         <>
             <h3>Total Price: {(Math.round(100 * Number(price))) / 100}</h3>
-            <button onClick={submitCart}> NEXT </button>
+            <button className="nextButton" onClick={submitCart}> NEXT </button>
             
             <div className="menu">
 
