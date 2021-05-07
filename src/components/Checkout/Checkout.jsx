@@ -1,12 +1,14 @@
 import './Checkout.css'
 import {useSelector} from 'react-redux'
 import axios from 'axios';
-
+import {useDispatch} from 'react-redux';
+import {useHistory} from 'react-router-dom';
 
 function Checkout() {
 
-  
-  
+  const dispatch = useDispatch();
+  const history = useHistory();
+
   const checkoutListData = useSelector(store => store.cart);
   const checkoutCustomerData = useSelector(store => store.customers);
   const total = useSelector(store => store.totalPrice);
@@ -37,7 +39,9 @@ function Checkout() {
       console.log('Unable to add order', error);
       alert('Unable to add order');
     })
-
+    dispatch({type: 'RESET_CART'});
+    dispatch({type: 'RESET_PRICE'});
+    history.push('/');
   }
 
   return (
