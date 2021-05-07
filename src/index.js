@@ -17,7 +17,7 @@ const menuStore = (state = [], action) => {
 
 const cart = (state = [], action) => {
     if (action.type === 'SET_CART') {
-        return [...state, action.payload];
+        return action.payload;
     }
     else if (action.type === 'RESET_CART') {
         return [];
@@ -38,7 +38,7 @@ const totalPrice = (state = 0, action) => {
 const customers = (state=[], action) => {
     console.log('hello from the customers reducer');
     if (action.type === `ADD_CUSTOMER`) {
-        return [...state, action.payload]
+        return action.payload
     }
     return state;
     
