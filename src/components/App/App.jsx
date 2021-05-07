@@ -20,7 +20,7 @@ function App() {
 
       </header>
       <Router>
-        <nav>
+        {/* <nav>
           <ul>
             <li>
               <Link to='/'>Menu</Link>
@@ -32,7 +32,7 @@ function App() {
               <Link to='/checkout'>Checkout</Link>
             </li>
           </ul>
-        </nav>
+        </nav> */}
         <Route path="/" exact>
           <Menu />
         </Route>

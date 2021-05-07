@@ -75,7 +75,7 @@ function Customer(){
                 <input onChange={(event) => setType(event.target.value)} type="radio" id="delivery" name="type" value="delivery" />
                   Delivery
                 <br/>
-                <p>Total Price: {totalPrice}</p>
+                <h3>Total: ${totalPrice}</h3>
                 <button disabled={!isEnabled}>NEXT</button>
 
 
