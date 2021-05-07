@@ -1,6 +1,6 @@
 import './Checkout.css'
 import {useSelector} from 'react-redux'
-import {useState, useEffect} from 'react';
+import {useState} from 'react';
 
 function Checkout() {
 
