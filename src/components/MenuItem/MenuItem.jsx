@@ -5,6 +5,8 @@ import './MenuItem.css';
 
 function MenuItem({ pizza, currentCart, setCurrentCart, price, setPrice }) {
 
+pizza.quantity = 1;
+
     let [toggle, setToggle] = useState(true);
 
     const dispatch = useDispatch();
