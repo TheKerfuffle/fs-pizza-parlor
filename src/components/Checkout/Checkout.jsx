@@ -69,9 +69,9 @@ function Checkout() {
               )}
             </tbody>
           </table>
-          <div className="total">
-            {total}
-          </div>
+          <h3 className="total">
+            Total: ${total}
+          </h3>
           <button onClick={handleCheckout}>Checkout</button>
         </div>
       </div> 
