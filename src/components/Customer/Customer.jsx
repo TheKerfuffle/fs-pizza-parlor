@@ -1,7 +1,7 @@
-import axios from "axios";
 import {useDispatch} from 'react-redux';
 import {useState} from 'react';
-import './Customer.css';
+import './Customer.css'
+import {useSelector} from 'react-redux';
 import { useHistory } from 'react-router-dom';
 
 function Customer(){
@@ -15,26 +15,16 @@ function Customer(){
     const [zip, setZip] = useState('');
     const [type, setType] = useState('');
 
-    
+    const totalPrice = useSelector(store => store.totalPrice);
+
+    const isEnabled = name.length > 0 && address.length > 0 && city.length > 0 && zip.length > 0 && type.length > 0;
+
+
     const handleSubmit = event => {
         event.preventDefault();
 
         console.log('adding customer info for:', {name});
 
-        // let choice = document.getElementsByName('type');
-        // for (i=0; i < choice.length; i++) {
-        //     if (choice[i].checked) {
-        //         setType(choice[i].value);
-        //     }
-        // }
-
-        // if (document.getElementById('pickup').checked){
-        //     setType(document.getElementById('pickup'.value))
-        // }
-        // else {
-        //     setType(document.getElementById('delivery'.value))
-        // }
-        
         dispatch({type: 'ADD_CUSTOMER', payload:{
             customer_name: name, 
             street_address: address,
@@ -49,23 +39,10 @@ function Customer(){
         setType('');
         history.push('/checkout');
 
-    //     axios.post('/customer', {
-    //         customer_name: name,
-    //         street_address: address,
-    //         city: city,
-    //         zip: zip,
-
-    //     })
-    //     .then(response => {
-    //         console.log('added book successfully');
-    //         //GET the customer from the server again
-    //         fetchCustomer();
-    //       })
-    //       .catch(error => {
-    //         alert(`Sorry. things are not working at the moment. Try again later`)
-    //         console.log('error adding book', error);
-    //       })
+        
     }
+
+    
 
     return(
         <>
@@ -98,7 +75,8 @@ function Customer(){
                 <input onChange={(event) => setType(event.target.value)} type="radio" id="delivery" name="type" value="delivery" />
                   Delivery
                 <br/>
-                <button>NEXT</button>
+                <h3>Total: ${totalPrice}</h3>
+                <button disabled={!isEnabled}>NEXT</button>
 
 
             </form>

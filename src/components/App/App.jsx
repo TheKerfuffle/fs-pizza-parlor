@@ -11,19 +11,6 @@ import StrongAnonymousDumboOctopus from '../StrongAnonymousDumboOctopus/StrongAn
 
 function App() {
 
-  // const dispatch = useDispatch();
-
-  // const fetchCustomer = () => {
-  //   Axios.get('/customer')
-  //     .then(response => {
-  //       //send to reducer
-  //       dispatch({type: 'SET_CUSTOMER', payload: response.data})
-  //     })
-  //     .catch(error => {
-  //       alert(`Sorry. Things aren't working at the moment. Try again later`);
-  //       console.log('error getting customer info', error);
-  //     }) 
-  // }
 
   return (
 

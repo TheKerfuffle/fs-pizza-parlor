@@ -1,13 +1,11 @@
-import './Checkout.css';
-import {useSelector} from 'react-redux';
+import './Checkout.css'
+import {useSelector} from 'react-redux'
 import axios from 'axios';
-import {useState} from 'react';
+
 
 function Checkout() {
 
-  function getTotal () {
-    return total;
-  }
+  
   
   const checkoutListData = useSelector(store => store.cart);
   const checkoutCustomerData = useSelector(store => store.customers);
