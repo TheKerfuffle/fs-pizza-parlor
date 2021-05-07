@@ -17,7 +17,7 @@ const menuStore = (state = [], action) => {
 
 const cart = (state = [], action) => {
     if (action.type === 'SET_CART') {
-        return [...state, action.payload];
+        return action.payload;
     }
     else if (action.type === 'RESET_CART') {
         return [];
@@ -34,14 +34,24 @@ const totalPrice = (state = 0, action) => {
     }
     return state;
 }
-    
-const customers = (state=[], action) => {
+
+const customers = (state = [], action) => {
     console.log('hello from the customers reducer');
     if (action.type === `ADD_CUSTOMER`) {
-        return [...state, action.payload]
+        return action.payload;
     }
     return state;
-    
+
+}
+
+const orderStore = (state = [], action) => {
+
+    if (action.type === `SET_ORDERS`) {
+        return action.payload;
+    }
+
+    return state;
+
 }
 
 const storeInstance = createStore(
@@ -51,6 +61,7 @@ const storeInstance = createStore(
         cart,
         totalPrice,
         customers,
+        orderStore
     }
     ),
     // Also, add our middleware for the logger
@@ -61,9 +72,9 @@ const storeInstance = createStore(
 );
 
 ReactDOM.render(
-<React.StrictMode>
+    <React.StrictMode>
         <Provider store={storeInstance}>
             <App />
         </Provider>
-    </React.StrictMode>, 
-document.getElementById('root'));
+    </React.StrictMode>,
+    document.getElementById('root'));

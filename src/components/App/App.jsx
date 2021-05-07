@@ -4,8 +4,9 @@ import axios from 'axios';
 import './App.css';
 
 import Menu from '../Menu/Menu';
+import Admin from '../Admin/Admin';
 import Customer from '../Customer/Customer';
-import Checkout from '../Checkout/Checkout'
+import Checkout from '../Checkout/Checkout';
 import StrongAnonymousDumboOctopus from '../StrongAnonymousDumboOctopus/StrongAnonymousDumboOctopus';
 
 function App() {
@@ -33,7 +34,7 @@ function App() {
 
       </header>
       <Router>
-        <nav>
+        {/* <nav>
           <ul>
             <li>
               <Link to='/'>Menu</Link>
@@ -44,16 +45,20 @@ function App() {
             <li>
               <Link to='/checkout'>Checkout</Link>
             </li>
+
           </ul>
-        </nav>
+        </nav> */}
         <Route path="/" exact>
           <Menu />
         </Route>
         <Route path="/customer" exact>
           <Customer />
         </Route>
-          <Route path="/checkout" component={Checkout}/>
-          <Route path="/strong-anonymous-dumbo-octopus" component={StrongAnonymousDumboOctopus} />
+        <Route path="/checkout" component={Checkout} />
+        <Route path="/strong-anonymous-dumbo-octopus" component={StrongAnonymousDumboOctopus} />
+        <Route path="/admin" exact>
+          <Admin />
+        </Route>
       </Router>
 
     </div>
