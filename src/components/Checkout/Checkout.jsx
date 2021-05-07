@@ -13,21 +13,23 @@ function Checkout() {
   const checkoutCustomerData = useSelector(store => store.customers);
   const total = useSelector(store => store.totalPrice);
   
-  const [order, setOrder] = useState({});
+  // const [order, setOrder] = useState({});
 
   const handleCheckout = () => {
     console.log('click');
-    setOrder({
+    const order = {
       customer_name: checkoutCustomerData.customer_name,
       street_address: checkoutCustomerData.street_address,
       city: checkoutCustomerData.city,
       zip: checkoutCustomerData.zip,
       type: checkoutCustomerData.type,
-      total:total
-    })
+      total: String(total),
+      pizzas: checkoutListData
+    }
+    console.log(order);
     axios({
       method: 'POST',
-      url: '/api/orders', 
+      url: '/api/order', 
       data: order
     })
     .then(response =>  {
