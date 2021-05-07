@@ -2,6 +2,7 @@ import axios from 'axios';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 
 import MenuItem from '../MenuItem/MenuItem';
 import './Menu.css';
@@ -12,6 +13,7 @@ function Menu() {
     let [price, setPrice] = useState(0);
 
     const dispatch = useDispatch();
+    const history = useHistory();
 
     function setMenu() {
         axios.get('/api/pizza')

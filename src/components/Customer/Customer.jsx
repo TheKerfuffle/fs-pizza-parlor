@@ -2,10 +2,12 @@ import {useDispatch} from 'react-redux';
 import {useState} from 'react';
 import './Customer.css'
 import {useSelector} from 'react-redux';
+import { useHistory } from 'react-router-dom';
 
 function Customer(){
 
     const dispatch = useDispatch();
+    const history = useHistory();
 
     const [name, setName] = useState('');
     const [address, setAddress] = useState('');
@@ -15,11 +17,13 @@ function Customer(){
 
     const totalPrice = useSelector(store => store.totalPrice);
 
+    const isEnabled = name.length > 0 && address.length > 0 && city.length > 0 && zip.length > 0 && type.length > 0;
+
+
     const handleSubmit = event => {
         event.preventDefault();
 
         console.log('adding customer info for:', {name});
-
 
         dispatch({type: 'ADD_CUSTOMER', payload:{
             customer_name: name, 
@@ -33,10 +37,12 @@ function Customer(){
         setCity('');
         setZip('');
         setType('');
+        history.push('/checkout');
 
         
-
     }
+
+    
 
     return(
         <>
@@ -70,7 +76,7 @@ function Customer(){
                   Delivery
                 <br/>
                 <p>Total Price: {totalPrice}</p>
-                <button>NEXT</button>
+                <button disabled={!isEnabled}>NEXT</button>
 
 
             </form>
