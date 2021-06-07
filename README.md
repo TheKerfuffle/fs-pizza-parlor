@@ -1,5 +1,27 @@
 # React Pizza Parlor
 
+This was a group project that I worked on with collaborators Chloe Everson and John Turner. 
+
+## Description
+
+We were tasked with creating the website for a pizza parlor and handling all orders and line items that came with them.We were able to complete this project as well as adding some extra features that made this one of the most satisfying collaborative experiences I have had in my time of software engineering.
+
+## To Get Started
+
+First you are going to want to set up a database in postico with the name "pizza_parlor" and run the queries in the database.sql file.
+
+Then in your command:
+
+```
+npm install
+npm run server
+npm run client
+```
+
+This should automatically open your default browser to the first view.
+
+# React Pizza Parlor
+
 Before you get started make sure to read through **ALL** requirements and outline a plan for your group. Assign out tasks and use branches to allow team members to work in parallel.
 
 ### Setup
